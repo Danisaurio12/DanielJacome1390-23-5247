@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+<section id="seccion-estudiantes">
+    <h1>Estudiantes registrados</h1>
+
+    {% if mensaje %}
+    <p class="alerta">{{ mensaje }}</p>
+    {% endif %}
+
+    <table class="tabla-datos">
+        <caption>Listado de estudiantes</caption>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Carrera</th>
+                <th>Semestre</th>
+                <th>Perfil</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for e in estudiantes %}
+            <tr>
+                <td>{{ e.nombre }}</td>
+                <td>{{ e.carrera }}</td>
+                <td>{{ e.semestre }}</td>
+                <td>
+                    <!-- Enlace a la ruta dinámica /estudiante/<nombre> -->
+                    <a href="{{ url_for('perfil_estudiante', nombre=e.nombre) }}" class="enlace-perfil">Ver perfil</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <article class="formulario-card">
+        <h2>Agregar estudiante</h2>
+        <form action="{{ url_for('pagina1') }}" method="POST" id="form-estudiante">
+            <div class="campo">
+                <label for="nombre">Nombre completo</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Ej. María López" required>
+            </div>
+
+            <div class="campo">
+                <label for="carrera">Carrera</label>
+                <input type="text" id="carrera" name="carrera" placeholder="Ej. Ing. en Sistemas" required>
+            </div>
+
+            <div class="campo">
+                <label for="semestre">Semestre</label>
+                <input type="number" id="semestre" name="semestre" min="1" max="10" required>
+            </div>
+
+            <div class="campo">
+                <label for="carnet">Carnet (autogenerado)</label>
+                <input type="text" id="carnet" name="carnet" value="Se asigna automáticamente" disabled>
+            </div>
+
+            <button type="submit" class="btn">Guardar estudiante</button>
+        </form>
+    </article>
+</section>
+{% endblock %}
