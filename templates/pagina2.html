@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+<section id="seccion-cursos">
+    <h1>Cursos disponibles</h1>
+
+    {% for curso in cursos %}
+    <article class="tarjeta-curso">
+        <h2>{{ curso.nombre }}</h2>
+        <ul class="lista-temas">
+            {% for tema in curso.temas %}
+            <li>
+                {{ tema }}
+                <ul class="sublista">
+                    <li>Material de clase</li>
+                    <li>Ejercicios prácticos</li>
+                </ul>
+            </li>
+            {% endfor %}
+        </ul>
+    </article>
+    {% endfor %}
+
+    <figure class="figura-curso">
+        <img src="{{ url_for('static', filename='img/cursos.jpg') }}" alt="Logotipo del 60 aniversario de la Universidad Mariano Gálvez, 1966-2026">
+        <figcaption>Cursos del área de Ingeniería en Sistemas.</figcaption>
+    </figure>
+</section>
+{% endblock %}
