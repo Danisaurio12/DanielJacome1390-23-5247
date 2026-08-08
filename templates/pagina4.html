@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+<section id="seccion-contacto">
+    <article class="contacto-info">
+        <h1>Contáctanos</h1>
+        <p>Completa el siguiente formulario y te responderemos a la brevedad.</p>
+
+        {% if confirmacion %}
+        <div class="alerta alerta-exito">
+            <p>Gracias, {{ confirmacion.nombre }}. Tu mensaje sobre
+               "<strong>{{ confirmacion.asunto }}</strong>" fue recibido.</p>
+            <p>Suscripción al boletín: {{ confirmacion.suscribirse }}</p>
+        </div>
+        {% endif %}
+
+        <form action="{{ url_for('pagina4') }}" method="POST" id="form-contacto">
+            <div class="campo">
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" name="nombre" required>
+            </div>
+
+            <div class="campo">
+                <label for="email">Correo electrónico</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="campo">
+                <label for="telefono">Teléfono</label>
+                <input type="tel" id="telefono" name="telefono" pattern="[0-9]{8}" placeholder="12345678">
+            </div>
+
+            <div class="campo">
+                <label for="asunto">Asunto</label>
+                <select id="asunto" name="asunto">
+                    <option value="Consulta general">Consulta general</option>
+                    <option value="Soporte técnico">Soporte técnico</option>
+                    <option value="Sugerencia">Sugerencia</option>
+                </select>
+            </div>
+
+            <div class="campo">
+                <label for="mensaje">Mensaje</label>
+                <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+            </div>
+
+            <div class="campo campo-checkbox">
+                <input type="checkbox" id="suscribirse" name="suscribirse">
+                <label for="suscribirse">Deseo suscribirme al boletín</label>
+            </div>
+
+            <button type="submit" class="btn">Enviar mensaje</button>
+        </form>
+    </article>
+
+    <figure class="figura-contacto">
+       <img src="{{ url_for('static', filename='img/contacto.jpg') }}" alt="Vista aérea del campus de la Universidad Mariano Gálvez, sede Chiquimula">
+        <figcaption>Campus UMG, sede Chiquimula.</figcaption>
+    </figure>
+</section>
+{% endblock %}
