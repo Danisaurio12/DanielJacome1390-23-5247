@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Académico | {{ titulo }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='estilos.css') }}">
+</head>
+<body>
+
+    <header id="encabezado-principal">
+        <div class="contenedor encabezado-flex">
+            <a href="{{ url_for('index') }}" class="logo-link">
+                <img src="{{ url_for('static', filename='img/logo-umg.png') }}" alt="Escudo de la Universidad Mariano Gálvez de Guatemala" class="logo">
+                <span class="titulo-sitio">Sistema Académico UMG</span>
+            </a>
+
+            <nav id="nav-principal">
+                <ul class="lista-nav">
+                    <li><a href="{{ url_for('index') }}" class="nav-link">Inicio</a></li>
+                    <li><a href="{{ url_for('pagina1') }}" class="nav-link">Estudiantes</a></li>
+                    <li><a href="{{ url_for('pagina2') }}" class="nav-link">Cursos</a></li>
+                    <li><a href="{{ url_for('pagina3') }}" class="nav-link">Recursos</a></li>
+                    <li><a href="{{ url_for('pagina4') }}" class="nav-link">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="contenedor">
+        {% block contenido %}{% endblock %}
+    </main>
+
+    <footer id="pie-pagina">
+        <div class="contenedor">
+            <p>&copy; 2026 Sistema Académico &mdash; Proyecto Serie II, Desarrollo Web.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
