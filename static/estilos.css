@@ -1,0 +1,327 @@
+/* ==========================================================================
+   Sistema Académico - estilos.css
+   Paleta y tipografía consistentes en las 5 páginas.
+   ========================================================================== */
+
+:root {
+    --color-primario: #1d4ed8;
+    --color-primario-oscuro: #1e3a8a;
+    --color-acento: #0d9488;
+    --color-fondo: #f8fafc;
+    --color-superficie: #ffffff;
+    --color-texto: #1e293b;
+    --color-texto-suave: #64748b;
+    --color-borde: #e2e8f0;
+    --color-exito: #0f766e;
+    --fuente-base: "Segoe UI", Verdana, Arial, sans-serif;
+}
+
+/* ---------- Selectores de TIPO (reset y base) ---------- */
+* {
+    box-sizing: border-box; /* Box model aplicado a todos los elementos */
+}
+
+body {
+    margin: 0;
+    font-family: var(--fuente-base);
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    line-height: 1.6;
+}
+
+h1, h2 {
+    color: var(--color-primario-oscuro);
+    font-family: var(--fuente-base);
+}
+
+a {
+    color: var(--color-primario);
+    text-decoration: none;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+ul {
+    padding-left: 1.2rem;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* ---------- Selector de CLASE: contenedor general ---------- */
+.contenedor {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 1.5rem; /* box model: padding lateral */
+}
+
+/* ---------- Encabezado (selector de ID) ---------- */
+#encabezado-principal {
+    background-color: var(--color-primario-oscuro);
+    border-bottom: 4px solid var(--color-acento);
+    padding: 1rem 0;
+}
+
+.encabezado-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: #ffffff;
+}
+
+.logo {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 2px solid var(--color-acento);
+}
+
+.titulo-sitio {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+/* ---------- Navegación (selector de ID) ---------- */
+#nav-principal .lista-nav {
+    list-style: none;
+    display: flex;
+    gap: 1.25rem;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-link {
+    color: #e2e8f0;
+    padding: 0.4rem 0.6rem; /* box model */
+    border-radius: 4px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Pseudo-clase :hover en la navegación */
+.nav-link:hover {
+    background-color: var(--color-acento);
+    color: #ffffff;
+}
+
+/* ---------- Secciones y tarjetas ---------- */
+main.contenedor {
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+    min-height: 60vh;
+}
+
+.hero {
+    background-color: var(--color-superficie);
+    border: 1px solid var(--color-borde);
+    border-radius: 8px;
+    padding: 2rem; /* box model */
+    margin-bottom: 2rem;
+}
+
+.tarjetas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.25rem;
+}
+
+.tarjeta,
+.tarjeta-curso,
+.tarjeta-perfil,
+.formulario-card {
+    background-color: var(--color-superficie);
+    border: 1px solid var(--color-borde);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+/* ---------- Botones (selector de clase) ---------- */
+.btn {
+    display: inline-block;
+    background-color: var(--color-primario);
+    color: #ffffff;
+    padding: 0.6rem 1.1rem; /* box model */
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn:hover {
+    background-color: var(--color-primario-oscuro);
+}
+
+/* ---------- Tablas ---------- */
+.tabla-datos {
+    margin-bottom: 2rem;
+}
+
+.tabla-datos caption {
+    text-align: left;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: var(--color-texto-suave);
+}
+
+.tabla-datos th,
+.tabla-datos td {
+    border: 1px solid var(--color-borde);
+    padding: 0.6rem 0.8rem; /* box model */
+    text-align: left;
+}
+
+.tabla-datos thead {
+    background-color: var(--color-primario);
+    color: #ffffff;
+}
+
+.tabla-datos tbody tr:nth-child(even) {
+    background-color: #f1f5f9;
+}
+
+.enlace-perfil {
+    color: var(--color-acento);
+    font-weight: 600;
+}
+
+/* ---------- Formularios ---------- */
+.campo {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    max-width: 420px;
+}
+
+.campo label {
+    font-weight: 600;
+    color: var(--color-texto);
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+    padding: 0.55rem 0.7rem; /* box model */
+    border: 1px solid var(--color-borde);
+    border-radius: 6px;
+    font-family: var(--fuente-base);
+    font-size: 1rem;
+}
+
+/* Pseudo-clase :focus en los campos del formulario */
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+    outline: none;
+    border-color: var(--color-acento);
+    box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.2);
+}
+
+/* Pseudo-clase :disabled */
+.campo input:disabled {
+    background-color: #e2e8f0;
+    color: var(--color-texto-suave);
+    cursor: not-allowed;
+}
+
+.campo-checkbox {
+    flex-direction: row;
+    align-items: center;
+}
+
+/* ---------- Listas anidadas ---------- */
+.lista-temas,
+.lista-recursos {
+    list-style: disc;
+}
+
+.sublista {
+    list-style: circle;
+    margin-top: 0.3rem;
+    color: var(--color-texto-suave);
+}
+
+/* ---------- Figure / Figcaption ---------- */
+.figura-curso,
+.figura-contacto {
+    margin: 1.5rem 0;
+    border: 1px solid var(--color-borde);
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: var(--color-superficie);
+}
+
+.figura-curso img,
+.figura-contacto img {
+    width: 100%;
+}
+
+.figura-curso figcaption,
+.figura-contacto figcaption {
+    padding: 0.75rem 1rem; /* box model */
+    font-size: 0.9rem;
+    color: var(--color-texto-suave);
+    text-align: center;
+}
+
+/* ---------- Página de recursos (aside) ---------- */
+.recursos-flex {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.contenido-principal {
+    flex: 2;
+    min-width: 280px;
+}
+
+.barra-lateral {
+    flex: 1;
+    min-width: 220px;
+    background-color: var(--color-superficie);
+    border: 1px solid var(--color-borde);
+    border-radius: 8px;
+    padding: 1.25rem;
+    height: fit-content;
+}
+
+/* ---------- Alertas ---------- */
+.alerta {
+    background-color: #fef9c3;
+    border: 1px solid #facc15;
+    border-radius: 6px;
+    padding: 0.8rem 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.alerta-exito {
+    background-color: #ccfbf1;
+    border-color: var(--color-exito);
+    color: var(--color-exito);
+}
+
+/* ---------- Pie de página (selector de ID) ---------- */
+#pie-pagina {
+    background-color: var(--color-primario-oscuro);
+    color: #cbd5e1;
+    text-align: center;
+    padding: 1.2rem 0;
+    font-size: 0.9rem;
+}
