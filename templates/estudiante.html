@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+<section id="perfil-estudiante">
+    <h1>Perfil de estudiante</h1>
+
+    {% if estudiante %}
+        <article class="tarjeta-perfil">
+            <h2>{{ estudiante.nombre }}</h2>
+            <p><strong>Carrera:</strong> {{ estudiante.carrera }}</p>
+            <p><strong>Semestre:</strong> {{ estudiante.semestre }}</p>
+        </article>
+    {% else %}
+        <p class="alerta">No se encontró ningún estudiante con el nombre "{{ nombre }}".</p>
+    {% endif %}
+
+    <a href="{{ url_for('pagina1') }}" class="btn">Volver al listado</a>
+</section>
+{% endblock %}
