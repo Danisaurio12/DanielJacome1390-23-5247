@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+<section class="hero">
+    <h1>Bienvenido al Sistema Académico</h1>
+    <p>
+        Esta aplicación web fue construida con <strong>Flask</strong> y
+        <strong>Jinja2</strong>. Desde el menú de navegación puedes acceder
+        a la información de estudiantes, cursos, recursos y el formulario
+        de contacto.
+    </p>
+</section>
+
+<section class="tarjetas">
+    <article class="tarjeta">
+        <h2>Estudiantes</h2>
+        <p>Consulta el listado de estudiantes registrados y agrega nuevos.</p>
+        <a href="{{ url_for('pagina1') }}" class="btn">Ver estudiantes</a>
+    </article>
+
+    <article class="tarjeta">
+        <h2>Cursos</h2>
+        <p>Explora los cursos disponibles y sus temas principales.</p>
+        <a href="{{ url_for('pagina2') }}" class="btn">Ver cursos</a>
+    </article>
+
+    <article class="tarjeta">
+        <h2>Recursos</h2>
+        <p>Horarios de tutoría y enlaces útiles para el curso.</p>
+        <a href="{{ url_for('pagina3') }}" class="btn">Ver recursos</a>
+    </article>
+
+    <article class="tarjeta">
+        <h2>Contacto</h2>
+        <p>Envíanos un mensaje a través del formulario de contacto.</p>
+        <a href="{{ url_for('pagina4') }}" class="btn">Ir a contacto</a>
+    </article>
+</section>
+{% endblock %}
