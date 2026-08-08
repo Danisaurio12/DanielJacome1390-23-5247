@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+<section id="seccion-recursos">
+    <h1>Recursos y tutorías</h1>
+
+    <div class="recursos-flex">
+        <article class="contenido-principal">
+            <h2>Horario de tutorías</h2>
+            <table class="tabla-datos">
+                <caption>Horario semanal por tema</caption>
+                <thead>
+                    <tr>
+                        <th>Día</th>
+                        <th>Hora</th>
+                        <th>Tema</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for h in horario %}
+                    <tr>
+                        <td>{{ h.dia }}</td>
+                        <td>{{ h.hora }}</td>
+                        <td>{{ h.tema }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </article>
+
+        <aside class="barra-lateral">
+            <h2>Enlaces útiles</h2>
+            <ul class="lista-recursos">
+                {% for categoria, items in recursos.items() %}
+                <li>
+                    {{ categoria }}
+                    <ul class="sublista">
+                        {% for item in items %}
+                        <li>{{ item }}</li>
+                        {% endfor %}
+                    </ul>
+                </li>
+                {% endfor %}
+            </ul>
+        </aside>
+    </div>
+</section>
+{% endblock %}
